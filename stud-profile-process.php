@@ -14,7 +14,7 @@ if (isset($_POST['save-pict'])) {
     $fileType = $file['type'];
 
     $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
+    $fileActualExt = strtolower(end($fileExt)); 
 
     $allowed = array('jpg', 'jpeg');
 
@@ -24,17 +24,20 @@ if (isset($_POST['save-pict'])) {
                 $fileNameNew = "profile_". $id . "." . $fileActualExt;
                 $fileDestination = 'uploads/' . $fileNameNew;
                 if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                    $sql = "UPDATE stud_profiles SET profile_picture = '$fileNameNew'  WHERE user_id = $id";
+                    $sql = "UPDATE stud_profiles SET profile_picture = '$fileNameNew'  WHERE user_id = '$id'";
                     $result = mysqli_query($con, $sql);
-    
-                    $_SESSION['status_title'] = "Success!";
-                    $_SESSION['status'] = "Profile picture updated!";
-                    $_SESSION['status_code'] = "success";
-    
-                    header("Location: stud-profile.php");
-
+                    
+                    if ($result) {
+                        $_SESSION['status_title'] = "Success!";
+                        $_SESSION['status'] = "Profile picture updated!";
+                        $_SESSION['status_code'] = "success";
+        
+                        header("Location: stud-profile.php");                    
+                    } else {
+                        echo "fail to upload";
+                    }
                 } else {
-                    echo "fail to upload";
+                    echo "nda mau move";
                 }
 
             } else {

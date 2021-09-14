@@ -1,22 +1,69 @@
-<select onchange="yesnoCheck(this);">
-    <option value="">Valitse automerkkisi</option>
-    <option value="lada">Lada</option>
-    <option value="mosse">Mosse</option>
-    <option value="volga">Volga</option>
-    <option value="vartburg">Vartburg</option>
-    <option value="other">Muu</option>
-</select>
+<?php
+// Database configuration
+$dbHost     = "localhost";
+$dbUsername = "escholarship";
+$dbPassword = "password";
+$dbName     = "testing";
 
-<div id="ifYes" style="display: none;">
-    <label for="car">Muu, mikä?</label> <input type="text" id="car" name="car" /><br />
-</div>
+// Create database connection
+$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
-<script>
-  function yesnoCheck(that) {
-    if (that.value == "other") {
-        document.getElementById("ifYes").style.display = "block";
-    } else {
-        document.getElementById("ifYes").style.display = "none";
-    }
+// Check connection
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
 }
-</script>
+
+$statusMsg = '';
+
+// File upload path
+$targetDir = "uploads/";
+$fileName = basename($_FILES["file"]["name"]);
+$targetFilePath = $targetDir . $fileName;
+$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+
+if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
+    // Allow certain file formats
+    $allowTypes = array('jpg','png','jpeg','gif','pdf');
+    if(in_array($fileType, $allowTypes)){
+        // Upload file to server
+        if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
+            // Insert image file name into database
+            $insert = $db->query("INSERT into images (file_name, uploaded_on) VALUES ('".$fileName."', NOW())");
+            if($insert){
+                $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
+            }else{
+                $statusMsg = "File upload failed, please try again.";
+            } 
+        }else{
+            $statusMsg = "Sorry, there was an error uploading your file.";
+        }
+    }else{
+        $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+    }
+}else{
+    $statusMsg = 'Please select a file to upload.';
+}
+
+// Display status message
+echo $statusMsg;
+
+// Get images from the database
+$query = $db->query("SELECT * FROM images ORDER BY uploaded_on DESC");
+
+if($query->num_rows > 0){
+    while($row = $query->fetch_assoc()){
+        $imageURL = 'uploads/'.$row["file_name"];
+?>
+    <img src="<?php echo $imageURL; ?>" alt="" />
+<?php }
+}else{ ?>
+    <p>No image(s) found...</p>
+<?php }
+
+?>
+
+<form action="" method="post" enctype="multipart/form-data">
+    Select Image File to Upload:
+    <input type="file" name="file">
+    <input type="submit" name="submit" value="Upload">
+</form>

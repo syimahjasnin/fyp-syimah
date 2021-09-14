@@ -90,7 +90,7 @@ if(isset($_POST['register'])) {
                   // live api
                   // $messagebird = new MessageBird\Client('m71wgmhmdo7oEcmwYPouFrQfc');
                   // test api
-                  $messagebird = new MessageBird\Client('Er1avKftOOtJQq9CmxsPlqEEo');
+                  $messagebird = new MessageBird\Client('lxp5pda8JSJUCXUs7k4cMHqEA');
                   $message = new MessageBird\Objects\Message;
                   $message->originator = '+6738391204';
                   $message->recipients = [ '+6738391204' ];

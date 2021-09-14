@@ -28,11 +28,11 @@ require('header.php');
 
                         $user_id = $_SESSION['id'];
 
-                        // if ($role == "admin") {
-                        //   header("Location: admin-dashboard.php");
-                        //   die;
+                        if ($role == "admin") {
+                          header("Location: admin-dashboard.php");
+                          die;
 
-                        // } else if ($role == "student") {
+                        } else if ($role == "student") {
                           $check = "SELECT * FROM stud_profiles WHERE user_id = $user_id";
                           $run_check = mysqli_query($con, $check);
                           
@@ -54,11 +54,11 @@ require('header.php');
                                 }
                             }
                           }
-                        // } else if ($role == "agency") {
-                        //   header("Location: agency-dashboard.php");
-                        //   die;
+                        } else if ($role == "agency") {
+                          header("Location: agency-dashboard.php");
+                          die;
 
-                        // }
+                        }
 
                     } else {
                         $_SESSION['status_title'] = "Error!";
