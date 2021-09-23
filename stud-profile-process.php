@@ -152,3 +152,25 @@ if (isset($_POST['save-personalinfo'])) {
     }
 
 }
+
+// saving higher education qualifications
+if (isset($_POST['save-highercert'])) {
+    $qualifications = $_POST['qualifications'];
+    $course = $_POST['course'];
+    $certresult = $_POST['result'];
+    $year = $_POST['year'];
+    $institutions = $_POST['institutions'];
+
+    // if ($qualifications == "others") {
+    //     $qualifications = $_POST['other'];
+    // } else {
+        $save_higher_cert = "INSERT INTO user_higher_cert (user_id, qualifications, course, result, year, institutions) VALUES ($id, $qualifications, $course, $certresult, $year, $institutions)";
+        $run_query = mysqli_query($con, $save_higher_cert);
+
+        if ($run_query) {
+            echo "saved";
+        } else {
+            echo "not saved";
+        }
+    // }
+}

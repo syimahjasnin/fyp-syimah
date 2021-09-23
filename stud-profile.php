@@ -62,7 +62,7 @@ if ($run_profile) {
                 }
 
             ?>
-          
+
             <div class="list-group ml-3">
                 <a data-toggle="tab" href="#myprofile" class="list-group-item list-group-item-action active">
                     My Profile
@@ -77,83 +77,100 @@ if ($run_profile) {
                     Documents
                 </a>
             </div>
-            
+
         </div>
-        
+
         <!-- right col-->
-    	<div class="col-sm-9">              
-          <div class="tab-content">
+        <div class="col-sm-9">
+            <div class="tab-content">
 
-            <!-- for my profile tab -->
-            <div class="tab-pane active px-5" id="myprofile">
-                <hr class="mt-0 mb-4">
+                <!-- for my profile tab -->
+                <div class="tab-pane active px-5" id="myprofile">
+                    <hr class="mt-0 mb-4">
 
-                  <form class="form px-5 pt-0" action="" method="post" id="registrationForm">
-                      <div class="row mb-2">
+                    <form class="form px-5 pt-0" action="" method="post" id="registrationForm">
+                        <div class="row mb-2">
 
-                      <!-- name -->
-                        <div class="form-group col-lg-12">
-                            <label for="name"><h4>Name</h4></label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $name ?>">
-                        </div>
-                                                       
-                        <!-- email -->
-                        <div class="form-group col-lg-12">
-                            <label for="email"><h4>Email</h4></label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $email ?>">
-                        </div>
-
-                        <!-- phone number -->
-                        <div class="form-group col-lg-12">
-                            <label for="phonenumber"><h4>Phone Number</h4></label>
-                            <input type="number" class="form-control" name="phonenumber" id="phonenumber" placeholder="Phone Number" value="<?php echo $phonenumber?>">
-                        </div>
-                      </div>
-                      
-                      <!-- button -->
-                      <div class="form-group">
-                           <div class="col-lg-12 text-right mt-3">
-                              	<button class="btn btn-lg btn-success" type="submit" name="save-myprofile"><i class="fa fa-check whiteicon"></i> Save</button>
-                               	<button class="btn btn-lg" type="reset"><i class="fa fa-redo-alt whiteicon"></i> Reset</button>
+                            <!-- name -->
+                            <div class="form-group col-lg-12">
+                                <label for="name">
+                                    <h4>Name</h4>
+                                </label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                                    value="<?php echo $name ?>">
                             </div>
-                      </div>
-              	</form>
-              <hr class="mt-4 mb-5">
-             </div>
-             
-             <!-- for personal information tab -->
-             <div class="tab-pane px-5" id="personalinfo">
-                <hr class="mt-0 mb-4">
+
+                            <!-- email -->
+                            <div class="form-group col-lg-12">
+                                <label for="email">
+                                    <h4>Email</h4>
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                                    value="<?php echo $email ?>">
+                            </div>
+
+                            <!-- phone number -->
+                            <div class="form-group col-lg-12">
+                                <label for="phonenumber">
+                                    <h4>Phone Number</h4>
+                                </label>
+                                <input type="number" class="form-control" name="phonenumber" id="phonenumber"
+                                    placeholder="Phone Number" value="<?php echo $phonenumber?>">
+                            </div>
+                        </div>
+
+                        <!-- button -->
+                        <div class="form-group">
+                            <div class="col-lg-12 text-right mt-3">
+                                <button class="btn btn-lg btn-success" type="submit" name="save-myprofile"><i
+                                        class="fa fa-check whiteicon"></i> Save</button>
+                                <button class="btn btn-lg" type="reset"><i class="fa fa-redo-alt whiteicon"></i>
+                                    Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                    <hr class="mt-4 mb-5">
+                </div>
+
+                <!-- for personal information tab -->
+                <div class="tab-pane px-5" id="personalinfo">
+                    <hr class="mt-0 mb-4">
                     <form class="form px-5 pt-0" action="" method="post" id="registrationForm">
                         <div class="row mb-2">
 
                             <!-- date of birth -->
                             <div class="form-group col-lg-6">
-                                <label for="dob"><h4>Date of Birth</h4></label>
-                                    <?php 
+                                <label for="dob">
+                                    <h4>Date of Birth</h4>
+                                </label>
+                                <?php 
                                         if ($fetch_profile['date_of_birth'] == "0000-00-00") {
                                             echo "<input class='form-control' id='dob' name='dob' placeholder='Date of Birth' type='text' autocomplete='off' />";
                                         } else {
                                             echo "<input class='form-control' id='dob' name='dob' placeholder='Date of Birth' type='text' value='".date('d M Y', strtotime($fetch_profile['date_of_birth']))."' />";
                                         }
-                                    ?> 
+                                    ?>
                             </div>
 
                             <!-- place of birth -->
                             <div class="form-group col-lg-6">
-                                <label for="placebirth"><h4>Place of Birth</h4></label>
+                                <label for="placebirth">
+                                    <h4>Place of Birth</h4>
+                                </label>
                                 <?php 
                                     if ($fetch_profile['birth_place'] == "") {
                                         echo "<input type='text' class='form-control' name='placebirth' id='placebirth' placeholder='Place of Birth'>";
                                     } else {
                                         echo "<input type='text' class='form-control' name='placebirth' id='placebirth' placeholder='Place of Birth' value='".$fetch_profile['birth_place']."' />";
                                     }
-                                ?> 
+                                ?>
                             </div>
 
                             <!-- ic number -->
                             <div class="form-group col-lg-12">
-                                <label for="icnumber"><h4>IC Number</h4></label>
+                                <label for="icnumber">
+                                    <h4>IC Number</h4>
+                                </label>
                                 <?php 
                                     if ($fetch_profile['ic_number'] == "") {
                                         echo "<input type='number' class='form-control' name='icnumber' id='icnumber' placeholder='example: 01123456'>";
@@ -165,7 +182,9 @@ if ($run_profile) {
 
                             <!-- ic colour -->
                             <div class="form-group col-lg-12">
-                                <label for="colour"><h4>Colour</h4></label>
+                                <label for="colour">
+                                    <h4>Colour</h4>
+                                </label>
                                 <!-- select -->
                                 <div class="">
                                     <?php
@@ -201,7 +220,9 @@ if ($run_profile) {
 
                             <!-- permanent address -->
                             <div class="form-group col-lg-12">
-                                <label for="per_address"><h4>Permanent Address</h4></label>
+                                <label for="per_address">
+                                    <h4>Permanent Address</h4>
+                                </label>
                                 <?php 
                                     if ($fetch_profile['address'] == "") {
                                         echo "<textarea method='post' name='per_address' id='per_address' rows='3' class='form-control' placeholder='Permanent Address'></textarea>";
@@ -213,7 +234,9 @@ if ($run_profile) {
 
                             <!-- post code -->
                             <div class="form-group col-lg-6">
-                                <label for="per_postcode"><h4>Post Code</h4></label>
+                                <label for="per_postcode">
+                                    <h4>Post Code</h4>
+                                </label>
                                 <?php 
                                     if (empty($fetch_profile['postcode'])) {
                                         echo "<input type='text' class='form-control' name='per_postcode' id='per_postcode' placeholder='Post Code'>";
@@ -222,10 +245,11 @@ if ($run_profile) {
                                     }
                                 ?>
                             </div>
-                                
+
                             <!-- postal address -->
                             <div class="form-group col-lg-12 mt-4 mb-4">
-                                <label for="checkbox">Please tick if <b>Postal Address</b> is the same as <b>Permanent Address</b></label>
+                                <label for="checkbox">Please tick if <b>Postal Address</b> is the same as <b>Permanent
+                                        Address</b></label>
                                 <?php
                                     if ($fetch_profile['address'] == $fetch_profile['postal_address'] && $fetch_profile['address'] != "") {
                                         echo "<input type='checkbox' name='checkbox-address' id='checkbox-address' onchange='valueChanged()' checked>";
@@ -237,7 +261,9 @@ if ($run_profile) {
 
                             <!-- postal address -->
                             <div class="form-group col-lg-12" id="postal_address">
-                                <label for="pos_address"><h4>Postal Address</h4></label>
+                                <label for="pos_address">
+                                    <h4>Postal Address</h4>
+                                </label>
                                 <?php 
                                     if ($fetch_profile['postal_address'] == "") {
                                         echo "<textarea method='post' name='pos_address' id='pos_address' rows='3' class='form-control' placeholder='Postal Address'></textarea>";
@@ -249,7 +275,9 @@ if ($run_profile) {
 
                             <!-- post code -->
                             <div class="form-group col-lg-6" id="postal_postcode">
-                                <label for="pos_postcode"><h4>Post Code</h4></label>
+                                <label for="pos_postcode">
+                                    <h4>Post Code</h4>
+                                </label>
                                 <?php 
                                     if (empty($fetch_profile['postal_postcode'])) {
                                         echo "<input type='text' class='form-control' name='pos_postcode' id='pos_postcode' placeholder='Post Code'>";
@@ -260,297 +288,421 @@ if ($run_profile) {
                             </div>
 
                         </div>
-                        
+
                         <!-- button -->
                         <div class="form-group">
                             <div class="col-lg-12 text-right mt-3">
-                                    <button class="btn btn-lg btn-success" type="submit" name="save-personalinfo"><i class="fa fa-check whiteicon"></i> Save</button>
-                                    <button class="btn btn-lg" type="reset"><i class="fa fa-redo-alt whiteicon"></i> Reset</button>
-                                </div>
+                                <button class="btn btn-lg btn-success" type="submit" name="save-personalinfo"><i
+                                        class="fa fa-check whiteicon"></i> Save</button>
+                                <button class="btn btn-lg" type="reset"><i class="fa fa-redo-alt whiteicon"></i>
+                                    Reset</button>
+                            </div>
                         </div>
                     </form>
-                <hr class="mt-4 mb-5">
-             </div>
-             
-             <!-- for educational background tab-->
-             <div class="tab-pane px-5" id="educationalbg">	
-                <hr class="mt-0 mb-4">
+                    <hr class="mt-4 mb-5">
+                </div>
+
+                <!-- for educational background tab-->
+                <div class="tab-pane px-5" id="educationalbg">
+                    <hr class="mt-0 mb-4">
                     <div class="row mb-2 pl-2 pt-0">
-                        
+
                         <div class="form-group">
-                            <label class="col-lg-10"><h4><i class="fas fa-graduation-cap pr-2"></i>Higher Education Qualifications</h4></label>
-                            <button type="button" class="btn btn-outline-success col-lg-1" name="add-qualifications" data-bs-toggle="modal" data-bs-target="#highereducation">Add</button>
+                            <label class="col-lg-10">
+                                <h4><i class="fas fa-graduation-cap pr-2"></i>Higher Education Qualifications</h4>
+                            </label>
+                            <button type="button" class="btn btn-outline-success col-lg-1" name="add-qualifications"
+                                data-bs-toggle="modal" data-bs-target="#highereducation">Add</button>
 
                             <!-- Modal -->
                             <div class="modal fade" id="highereducation" data-bs-backdrop="static">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
+                                    <div class="modal-content ">
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="exampleModalLabel">Higher Education Qualifications</h4>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h4 class="modal-title" id="exampleModalLabel">Higher Education
+                                                Qualifications</h4>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                        <form action="" class="form text-left" method="post">
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- qualifications -->
-                                        <label for="qualification" class="col-lg-5"><h4>Qualifications:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='qualifications' name='qualifications' onchange='yesnoCheck(this)'>
-                                            <option value='' disabled selected hidden>Select Qualifications</option>
-                                            <option value="advdiploma">Advanced Diploma</option>
-                                            <option value="diploma">Diploma</option>
-                                            <option value="hnd">Higher National Diploma (HND)</option>
-                                            <option value="hntec">Higher National Technical Education Certificate (HNTec)</option>
-                                            <option value="ntec">National Technical Education Certificate (NTec)</option>
-                                            <option value="others">Others</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="row mycontainer">
-                                        <div id="ifYes" style="display: none;">
-                                            <label for="others" class="col-lg-5 mycontainer"></label>
-                                            <input type='text' class='form-control col-lg-7 mycontainer' name='others' id='others' placeholder='Please State'>
-                                        </div>
-                                    </div>
-                                </div>
-                                        
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- courses -->
-                                        <label for="course" class="col-lg-5"><h4>Course:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='course' name='course'>
-                                            <option value='' disabled selected hidden>Select Courses</option>
-                                            <option value="">Agrotechnology</option>
-                                            <option value="">Aircraft Maintenance Engineering (airframe and Engine)</option>
-                                            <option value="">Aircraft Maintenance Engineering (avionics)</option>
-                                            <option value="">Aquaculture</option>
-                                            <option value="">Architecture</option>
-                                            <option value="">Assistant Nurse (general Nursing)</option>
-                                            <option value="">Automobile Technology</option>
-                                            <option value="">Automotive Technician</option>
-                                            <option value="">Blasting and Painting (oil and Gas Industry)</option>
-                                            <option value="">Building Craft</option>
-                                            <option value="">Building Services Engineering</option>
-                                            <option value="">Business Accounting & Finance</option>
-                                            <option value="">Business Studies</option>
-                                            <option value="">Business Studies (entrepreneurship)</option>
-                                            <option value="">Business Studies (human Resource Management)</option>
-                                            <option value="">Business Studies (marketing)</option>
-                                            <option value="">Business and Administration</option>
-                                            <option value="">Business and Finance</option>
-                                            <option value="">Chemical Engineering</option>
-                                            <option value="">Civil Engineering</option>
-                                            <option value="">Computer Networking</option>
-                                            <option value="">Construction and Draughting (dual Tvet)</option>
-                                            <option value="">Control and Automation Engineering (hengyi)</option>
-                                            <option value="">Crop and Livestock Production</option>
-                                            <option value="">Culinary Operations</option>
-                                            <option value="">Data Analytics</option>
-                                            <option value="">Deck Rating</option>
-                                            <option value="">Dental Assisting</option>
-                                            <option value="">Digital Media</option>
-                                            <option value="">Electrical Engineering</option>
-                                            <option value="">Electrical Technology</option>
-                                            <option value="">Electrical and Electronic Engineering</option>
-                                            <option value="">Electronic Engineering</option>
-                                            <option value="">Electronics and Communications Engineering</option>
-                                            <option value="">Electronics and Media Technology</option>
-                                            <option value="">Engine Rating</option>
-                                            <option value="">Food Processing</option>
-                                            <option value="">Health Science (cardiovascular Technology)</option>
-                                            <option value="">Health Science (dental Hygiene & Therapy)</option>
-                                            <option value="">Health Science (environmental Health)</option>
-                                            <option value="">Health Science (midwifery)</option>
-                                            <option value="">Health Science (nursing)</option>
-                                            <option value="">Health Science (paramedics)</option>
-                                            <option value="">Heavy Vehicle Mechanics</option>
-                                            <option value="">Hospitality Operations</option>
-                                            <option value="">Industrial Equipment Maintenance</option>
-                                            <option value="">Industrial Machining & Maintenance</option>
-                                            <option value="">Information Systems</option>
-                                            <option value="">Information Technology</option>
-                                            <option value="">Information and Library Studies</option>
-                                            <option value="">Instrumentation and Control Engineering</option>
-                                            <option value="">Interior Design</option>
-                                            <option value="">It Network</option>
-                                            <option value="">Laboratory Science</option>
-                                            <option value="">Library Informatics Computing</option>
-                                            <option value="">Light Vehicle Mechanics</option>
-                                            <option value="">Marine Engineering</option>
-                                            <option value="">Markinga Nd Fitting (oil and Gas Industry)</option>
-                                            <option value="">Mechanical Engineering</option>
-                                            <option value="">Nautical Studies</option>
-                                            <option value="">Office Administration</option>
-                                            <option value="">Petroleum Engineering</option>
-                                            <option value="">Pharmacy Technician</option>
-                                            <option value="">Plant Engineering</option>
-                                            <option value="">Professional Cookery & Services</option>
-                                            <option value="">Real Estate Management and Agency</option>
-                                            <option value="">Refinery Operator (hengyi)</option>
-                                            <option value="">Refrigeration and Air-conditioning</option>
-                                            <option value="">Rigging (oil and Gas Industry)</option>
-                                            <option value="">Rooms Division Operations</option>
-                                            <option value="">Scaffolding (oil and Gass Industry)</option>
-                                            <option value="">Science Technology</option>
-                                            <option value="">Telecommunication and System Engineering</option>
-                                            <option value="">Travel and Tourism</option>
-                                            <option value="">Web Development</option>
-                                            <option value="">Welding</option>
-                                            <option value="">Welding (oil and Gas Industry)</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                            <form action="" class="form text-left" method="post">
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- qualifications -->
+                                                        <label for="qualification" class="col-lg-5">
+                                                            <h4>Qualifications:</h4>
+                                                        </label>
+                                                        <select class='form-select form-control col-lg-7'
+                                                            id='qualifications' name='qualifications'
+                                                            onchange="yesnoCheck(this)">
+                                                            <option value='' disabled selected hidden>Select
+                                                                Qualifications</option>
+                                                            <option value="advdiploma">Advanced Diploma</option>
+                                                            <option value="diploma">Diploma</option>
+                                                            <option value="hnd">Higher National Diploma (HND)</option>
+                                                            <option value="hntec">Higher National Technical Education
+                                                                Certificate (HNTec)</option>
+                                                            <option value="ntec">National Technical Education
+                                                                Certificate (NTec)</option>
+                                                            <option value="others">Others</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- result -->
-                                        <label for="result" class="col-lg-5"><h4>Result:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='result' name='result'>
-                                            <option value='' disabled selected hidden>Please Choose</option>
-                                            <option value="">Passed</option>
-                                            <option value="">Failed</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                                <div class="row" id="ifYes" style="display: none;">
+                                                    <div class="form-group d-inline-flex">
+                                                        <label for="other" class="col-lg-5">
+                                                            <h4>Others:</h4>
+                                                        </label>
+                                                        <input type='text' class='form-control col-lg-7' name='other'
+                                                            id='other' placeholder='Please State'>
+                                                    </div>
+                                                </div>
 
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- year -->
-                                        <label for="result" class="col-lg-5"><h4>Result:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='result' name='result'>
-                                            <option value='' disabled selected hidden>Please Choose</option>
-                                            <option value="">Passed</option>
-                                            <option value="">Failed</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- courses -->
+                                                        <label for="course" class="col-lg-5">
+                                                            <h4>Course:</h4>
+                                                        </label>
+                                                        <select class='form-select form-control col-lg-7' id='course'
+                                                            name='course'>
+                                                            <option value='' disabled selected hidden>Select Courses
+                                                            </option>
+                                                            <option value="Agrotechnology">Agrotechnology</option>
+                                                            <option
+                                                                value="Aircraft Maintenance Engineering (Airframe and Engine)">
+                                                                Aircraft Maintenance Engineering (Airframe and Engine)
+                                                            </option>
+                                                            <option value="Aircraft Maintenance Engineering (Avionics)">
+                                                                Aircraft Maintenance Engineering (Avionics)</option>
+                                                            <option value="Aquaculture">Aquaculture</option>
+                                                            <option value="Architecture">Architecture</option>
+                                                            <option value="Assistant Nurse (General Nursing)">Assistant
+                                                                Nurse (General Nursing)</option>
+                                                            <option value="Automobile Technology">Automobile Technology
+                                                            </option>
+                                                            <option value="Automotive Technician">Automotive Technician
+                                                            </option>
+                                                            <option
+                                                                value="Blasting and Painting (Oil and Gas Industry)">
+                                                                Blasting and Painting (Oil and Gas Industry)</option>
+                                                            <option value="Building Craft">Building Craft</option>
+                                                            <option value="Building Services Engineering">Building
+                                                                Services Engineering</option>
+                                                            <option value="Business Accounting & Finance">Business
+                                                                Accounting & Finance</option>
+                                                            <option value="Business Studies">Business Studies</option>
+                                                            <option value="Business Studies (Entrepreneurship)">Business
+                                                                Studies (Entrepreneurship)</option>
+                                                            <option
+                                                                value="Business Studies (Human Resource Management)">
+                                                                Business Studies (Human Resource Management)</option>
+                                                            <option value="Business Studies (Marketing)">Business
+                                                                Studies (Marketing)</option>
+                                                            <option value="Business and Administration">Business and
+                                                                Administration</option>
+                                                            <option value="Business and Finance">Business and Finance
+                                                            </option>
+                                                            <option value="Chemical Engineering">Chemical Engineering
+                                                            </option>
+                                                            <option value="Civil Engineering">Civil Engineering</option>
+                                                            <option value="Computer Networking">Computer Networking
+                                                            </option>
+                                                            <option value="Construction and Draughting (Dual Tvet)">
+                                                                Construction and Draughting (Dual Tvet)</option>
+                                                            <option value="Control and Automation Engineering (Hengyi)">
+                                                                Control and Automation Engineering (Hengyi)</option>
+                                                            <option value="Crop and Livestock Production">Crop and
+                                                                Livestock Production</option>
+                                                            <option value="Culinary Operations">Culinary Operations
+                                                            </option>
+                                                            <option value="Data Analytics">Data Analytics</option>
+                                                            <option value="Deck Rating">Deck Rating</option>
+                                                            <option value="Dental Assisting">Dental Assisting</option>
+                                                            <option value="Digital Media">Digital Media</option>
+                                                            <option value="Electrical Engineering">Electrical
+                                                                Engineering</option>
+                                                            <option value="Electrical Technology">Electrical Technology
+                                                            </option>
+                                                            <option value="Electrical and Electronic Engineering">
+                                                                Electrical and Electronic Engineering</option>
+                                                            <option value="Electronic Engineering">Electronic
+                                                                Engineering</option>
+                                                            <option value="Electronics and Communications Engineering">
+                                                                Electronics and Communications Engineering</option>
+                                                            <option value="Electronics and Media Technology">Electronics
+                                                                and Media Technology</option>
+                                                            <option value="Engine Rating">Engine Rating</option>
+                                                            <option value="Food Processing">Food Processing</option>
+                                                            <option value="Health Science (Cardiovascular Technology)">
+                                                                Health Science (Cardiovascular Technology)</option>
+                                                            <option value="Health Science (Dental Hygiene & Therapy)">
+                                                                Health Science (Dental Hygiene & Therapy)</option>
+                                                            <option value="Health Science (Environmental Health)">Health
+                                                                Science (Environmental Health)</option>
+                                                            <option value="Health Science (Midwifery)">Health Science
+                                                                (Midwifery)</option>
+                                                            <option value="Health Science (Nursing)">Health Science
+                                                                (Nursing)</option>
+                                                            <option value="Health Science (Paramedics)">Health Science
+                                                                (Paramedics)</option>
+                                                            <option value="Heavy Vehicle Mechanics">Heavy Vehicle
+                                                                Mechanics</option>
+                                                            <option value="Hospitality Operations">Hospitality
+                                                                Operations</option>
+                                                            <option value="Industrial Equipment Maintenance">Industrial
+                                                                Equipment Maintenance</option>
+                                                            <option value="Industrial Machining & Maintenance">
+                                                                Industrial Machining & Maintenance</option>
+                                                            <option value="Information Systems">Information Systems
+                                                            </option>
+                                                            <option value="Information Technology">Information
+                                                                Technology</option>
+                                                            <option value="Information and Library Studies">Information
+                                                                and Library Studies</option>
+                                                            <option value="Instrumentation and Control Engineering">
+                                                                Instrumentation and Control Engineering</option>
+                                                            <option value="Interior Design">Interior Design</option>
+                                                            <option value="It Network">It Network</option>
+                                                            <option value="Laboratory Science">Laboratory Science
+                                                            </option>
+                                                            <option value="Library Informatics Computing">Library
+                                                                Informatics Computing</option>
+                                                            <option value="Light Vehicle Mechanics">Light Vehicle
+                                                                Mechanics</option>
+                                                            <option value="Marine Engineering">Marine Engineering
+                                                            </option>
+                                                            <option value="Markinga Nd Fitting (Oil and Gas Industry)">
+                                                                Markinga Nd Fitting (Oil and Gas Industry)</option>
+                                                            <option value="Mechanical Engineering">Mechanical
+                                                                Engineering</option>
+                                                            <option value="Nautical Studies">Nautical Studies</option>
+                                                            <option value="Office Administration">Office Administration
+                                                            </option>
+                                                            <option value="Petroleum Engineering">Petroleum Engineering
+                                                            </option>
+                                                            <option value="Pharmacy Technician">Pharmacy Technician
+                                                            </option>
+                                                            <option value="Plant Engineering">Plant Engineering</option>
+                                                            <option value="Professional Cookery & Services">Professional
+                                                                Cookery & Services</option>
+                                                            <option value="Real Estate Management and Agency">Real
+                                                                Estate Management and Agency</option>
+                                                            <option value="Refinery Operator (Hengyi)">Refinery Operator
+                                                                (Hengyi)</option>
+                                                            <option value="Refrigeration and Air-conditioning">
+                                                                Refrigeration and Air-conditioning</option>
+                                                            <option value="Rigging (Oil and Gas Industry)">Rigging (Oil
+                                                                and Gas Industry)</option>
+                                                            <option value="Rooms Division Operations">Rooms Division
+                                                                Operations</option>
+                                                            <option value="Scaffolding (Oil and Gas Industry)">
+                                                                Scaffolding (Oil and Gas Industry)</option>
+                                                            <option value="Science Technology">Science Technology
+                                                            </option>
+                                                            <option value="Telecommunication and System Engineering">
+                                                                Telecommunication and System Engineering</option>
+                                                            <option value="Travel and Tourism">Travel and Tourism
+                                                            </option>
+                                                            <option value="Web Development">Web Development</option>
+                                                            <option value="Welding">Welding</option>
+                                                            <option value="Welding (Oil and Gas Industry)">Welding (Oil
+                                                                and Gas Industry)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- university/institution -->
-                                        <label for="institutions" class="col-lg-5"><h4>Institutions:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='institutions' name='institutions'>
-                                            <option value='' disabled selected hidden>Select Institutions</option>
-                                            <option value="">Institute Brunei Technical Education (ibte)</option>
-                                            <option value="">Politeknik Brunei (pb)</option>
-                                            <option value="">University Brunei Darussalam (ubd)</option>
-                                            <option value="">University Islam Sultan Sharif Ali (unissa)</option>
-                                            <option value="">University Technology Brunei (utb)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                        
-                            </form>
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- result -->
+                                                        <label for="result" class="col-lg-5">
+                                                            <h4>Result:</h4>
+                                                        </label>
+                                                        <select class='form-select form-control col-lg-7' id='result'
+                                                            name='result'>
+                                                            <option value='' disabled selected hidden>Please Choose
+                                                            </option>
+                                                            <option value="">Passed</option>
+                                                            <option value="">Failed</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- year -->
+                                                        <label for="year" class="col-lg-5">
+                                                            <h4>Year:</h4>
+                                                        </label>
+                                                        <input type='number' class='form-control col-lg-7' name='year'
+                                                            id='year' placeholder='Year'>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- university/institution -->
+                                                        <label for="institutions" class="col-lg-5">
+                                                            <h4>Institutions:</h4>
+                                                        </label>
+                                                        <select class='form-select form-control col-lg-7'
+                                                            id='institutions' name='institutions'>
+                                                            <option value='' disabled selected hidden>Select
+                                                                Institutions</option>
+                                                            <option value="">Institute Brunei Technical Education
+                                                            </option>
+                                                            <option value="">Politeknik Brunei</option>
+                                                            <option value="">University Brunei Darussalam</option>
+                                                            <option value="">University Islam Sultan Sharif Ali</option>
+                                                            <option value="">University Technology Brunei</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-md btn-success" type="submit" name="save-personalinfo"><i class="fa fa-check whiteicon"></i> Save</button>
+                                            <button class="btn btn-md btn-success" type="submit"
+                                                name="save-highercert"><i class="fa fa-check whiteicon"></i>
+                                                Save</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <!-- end of modal -->
 
-                        </div>  
-    
+                        <!-- display the higher certificate -->
+
                     </div>
 
-                <hr class="mt-2 mb-0">
+                    <hr class="mt-2 mb-0">
 
-                <div class="row mt-4 mb-2 pl-2 pt-0">
-                        
+                    <div class="row mt-4 mb-2 pl-2 pt-0">
+
                         <div class="form-group">
-                            <label class="col-lg-10"><h4><i class="fas fa-graduation-cap pr-2"></i>Lower Education Qualifications</h4></label>
-                            <button type="button" class="btn btn-outline-success col-lg-1" name="add-qualifications" data-bs-toggle="modal" data-bs-target="#lowereducation">Add</button>
+                            <label class="col-lg-10">
+                                <h4><i class="fas fa-graduation-cap pr-2"></i>Lower Education Qualifications</h4>
+                            </label>
+                            <button type="button" class="btn btn-outline-success col-lg-1" name="add-qualifications"
+                                data-bs-toggle="modal" data-bs-target="#lowereducation">Add</button>
 
                             <!-- Modal -->
                             <div class="modal fade" id="lowereducation" data-bs-backdrop="static">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="exampleModalLabel">Lower Education Qualifications</h4>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h4 class="modal-title" id="exampleModalLabel">Lower Education
+                                                Qualifications</h4>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                        <form action="" class="form text-left" method="post">
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- qualifications -->
-                                        <label for="qualification" class="col-lg-5"><h4>Qualifications:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='qualifications' name='qualifications'>
-                                            <option value='' disabled selected hidden>Select Qualifications</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                        
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- courses -->
-                                        <label for="course" class="col-lg-5"><h4>Course:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='course' name='course'>
-                                            <option value='' disabled selected hidden>Select Courses</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
+                                            <form action="" class="form text-left" method="post">
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- qualifications -->
+                                                        <label for="qualification" class="col-lg-5">
+                                                            <h4>Qualifications:</h4>
+                                                        </label>
+                                                        <select class='form-select form-control col-lg-7'
+                                                            id='qualifications' name='qualifications'>
+                                                            <option value='' disabled selected hidden>Select
+                                                                Qualifications</option>
 
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- result -->
-                                        <label for="result" class="col-lg-5"><h4>Result:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='result' name='result'>
-                                            <option value='' disabled selected hidden>Please Choose</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
+                                                        </select>
+                                                    </div>
+                                                </div>
 
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- year -->
-                                        <label for="result" class="col-lg-5"><h4>Result:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='result' name='result'>
-                                            <option value='' disabled selected hidden>Please Choose</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- courses -->
+                                                        <label for="course" class="col-lg-5">
+                                                            <h4>Course:</h4>
+                                                        </label>
+                                                        <select class='form-select form-control col-lg-7' id='course'
+                                                            name='course'>
+                                                            <option value='' disabled selected hidden>Select Courses
+                                                            </option>
 
-                                <div class="row">
-                                    <div class="form-group d-inline-flex">
-                                        <!-- university/institution -->
-                                        <label for="institutions" class="col-lg-5"><h4>Institutions:</h4></label>
-                                        <select class='form-select form-control col-lg-7' id='institutions' name='institutions'>
-                                            <option value='' disabled selected hidden>Select Institutions</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                        
-                            </form>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- result -->
+                                                        <label for="result" class="col-lg-5">
+                                                            <h4>Result:</h4>
+                                                        </label>
+                                                        <select class='form-select form-control col-lg-7' id='result'
+                                                            name='result'>
+                                                            <option value='' disabled selected hidden>Please Choose
+                                                            </option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- year -->
+                                                        <label for="result" class="col-lg-5">
+                                                            <h4>Result:</h4>
+                                                        </label>
+                                                        <select class='form-select form-control col-lg-7' id='result'
+                                                            name='result'>
+                                                            <option value='' disabled selected hidden>Please Choose
+                                                            </option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-group d-inline-flex">
+                                                        <!-- university/institution -->
+                                                        <label for="institutions" class="col-lg-5">
+                                                            <h4>Institutions:</h4>
+                                                        </label>
+                                                        <select class='form-select form-control col-lg-7'
+                                                            id='institutions' name='institutions'>
+                                                            <option value='' disabled selected hidden>Select
+                                                                Institutions</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-md btn-success" type="submit" name="save-personalinfo"><i class="fa fa-check whiteicon"></i> Save</button>
+                                            <button class="btn btn-md btn-success" type="submit"
+                                                name="save-highercert"><i class="fa fa-check whiteicon"></i>
+                                                Save</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                        </div>  
-    
-                    </div>
-                <hr class="mt-2 mb-0">
-                
-              </div>
+                        </div>
 
-             <!-- for documents tab-->
-             <div class="tab-pane px-5" id="documents">	
-                <hr class="mt-0 mb-4">
+                    </div>
+                    <hr class="mt-2 mb-0">
+
+                </div>
+
+                <!-- for documents tab-->
+                <div class="tab-pane px-5" id="documents">
+                    <hr class="mt-0 mb-4">
                     <form class="form px-5 pt-0" action="" method="post" id="registrationForm">
                         <div class="row mb-2">
 
                             <!-- BJCE / lower cert -->
                             <div class="form-group col-lg-12">
-                                <label for="lower-cert"><h4>Lower Certificate of Education or it's equivalent</h4></label>
+                                <label for="lower-cert">
+                                    <h4>Lower Certificate of Education or it's equivalent</h4>
+                                </label>
                                 <input type="file" class="form-control" name="lower-cert" id="lower-cert">
                             </div>
 
@@ -559,16 +711,20 @@ if ($run_profile) {
                         <div class="row mb-2">
                             <!-- GCE Olevel -->
                             <div class="form-group col-lg-12">
-                                <label for="olevel"><h4>GCE 'O' Level or it's equivalent</h4></label>
+                                <label for="olevel">
+                                    <h4>GCE 'O' Level or it's equivalent</h4>
+                                </label>
                                 <input type="file" class="form-control" name="olevel" id="olevel">
                             </div>
 
                         </div>
-                        
+
                         <div class="row mb-2">
                             <!-- GCE Alevel  -->
                             <div class="form-group col-lg-12">
-                                <label for="alevel"><h4>GCE 'A' Level or it's equivalent</h4></label>
+                                <label for="alevel">
+                                    <h4>GCE 'A' Level or it's equivalent</h4>
+                                </label>
                                 <input type="file" class="form-control" name="alevel" id="alevel">
                             </div>
 
@@ -578,83 +734,88 @@ if ($run_profile) {
 
                             <!--  first degree / HND  -->
                             <div class="form-group col-lg-12">
-                                <label for="hnd"><h4>First Degree / HND or it's equivalent</h4></label>
+                                <label for="hnd">
+                                    <h4>First Degree / HND or it's equivalent</h4>
+                                </label>
                                 <input type="file" class="form-control" name="hnd" id="hnd">
                             </div>
                         </div>
-                        
+
                         <!-- button -->
                         <div class="form-group">
                             <div class="col-lg-12 text-right mt-3">
-                                    <button class="btn btn-lg btn-success" type="submit"><i class="fa fa-check whiteicon"></i> Save</button>
-                                    <button class="btn btn-lg" type="reset"><i class="fa fa-redo-alt whiteicon"></i> Reset</button>
-                                </div>
+                                <button class="btn btn-lg btn-success" type="submit"><i
+                                        class="fa fa-check whiteicon"></i> Save</button>
+                                <button class="btn btn-lg" type="reset"><i class="fa fa-redo-alt whiteicon"></i>
+                                    Reset</button>
+                            </div>
                         </div>
                     </form>
-                <hr class="mt-4 mb-0">
-              </div>
-                                                      
-    <!-- when clicking the image placeholder for profile -->
-    <script>
-        // when clicking the image placeholder will trigger the input file
-        function triggerClick() {
-            document.querySelector('#profileImage').click();
-        }
+                    <hr class="mt-4 mb-0">
+                </div>
 
-        function displayImage(e) {
-            // if there is an image
-            if (e.files[0]) {
-                var reader = new FileReader();
+                <!-- when clicking the image placeholder for profile -->
+                <script>
+                    // when clicking the image placeholder will trigger the input file
+                    function triggerClick() {
+                        document.querySelector('#profileImage').click();
+                    }
 
-                // change the current image to the ones that has been choosen
-                reader.onload = function(e) {
-                    document.querySelector('#profileDisplay').setAttribute('src', e.target.result); 
-                }
-                reader.readAsDataURL(e.files[0]);
+                    function displayImage(e) {
+                        // if there is an image
+                        if (e.files[0]) {
+                            var reader = new FileReader();
 
-                // display the save button
-                $('#save-pict').removeClass('d-none');
-            }
-        }
-    </script>
+                            // change the current image to the ones that has been choosen
+                            reader.onload = function (e) {
+                                document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
+                            }
+                            reader.readAsDataURL(e.files[0]);
 
-    <!-- datepicker calendar -->
-    <script>
-        $(document).ready(function(){
-        var date_input=$('input[name="dob"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        var options={
-            format: 'd M yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        };
-        date_input.datepicker(options);
-        })
-    </script>
+                            // display the save button
+                            $('#save-pict').removeClass('d-none');
+                        }
+                    }
+                </script>
 
-    <!-- hide postal address if check -->
-    <script>
-        function valueChanged() {
-            if (document.getElementById('checkbox-address').checked) {
-                document.getElementById("postal_address").style.display = 'none';
-                document.getElementById("postal_postcode").style.display = 'none';
-                document.getElementById("postal_district").style.display = 'none';
-            } else {
-                document.getElementById("postal_address").style.display = 'block';
-                document.getElementById("postal_postcode").style.display = 'block';
-                document.getElementById("postal_district").style.display = 'block';
-            }
-        }
-    </script>
+                <!-- datepicker calendar -->
+                <script>
+                    $(document).ready(function () {
+                        var date_input = $('input[name="dob"]'); //our date input has the name "date"
+                        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form')
+                            .parent() : "body";
+                        var options = {
+                            format: 'd M yyyy',
+                            container: container,
+                            todayHighlight: true,
+                            autoclose: true,
+                        };
+                        date_input.datepicker(options);
+                    })
+                </script>
 
-    <!-- display if choose others -->
-    <script>
-    function yesnoCheck(that) {
-        if (that.value == "others") {
-            document.getElementById("ifYes").style.display = "block";
-        } else {
-            document.getElementById("ifYes").style.display = "none";
-        }
-    }
-    </script>
+                <!-- hide postal address if check -->
+                <script>
+                    function valueChanged() {
+                        if (document.getElementById('checkbox-address').checked) {
+                            document.getElementById("postal_address").style.display = 'none';
+                            document.getElementById("postal_postcode").style.display = 'none';
+                            document.getElementById("postal_district").style.display = 'none';
+                        } else {
+                            document.getElementById("postal_address").style.display = 'block';
+                            document.getElementById("postal_postcode").style.display = 'block';
+                            document.getElementById("postal_district").style.display = 'block';
+                        }
+                    }
+                </script>
+
+                <!-- display if choose others -->
+                <script>
+                    function yesnoCheck(that) {
+                        if (that.value == "others") {
+                            document.getElementById("ifYes").style.display = "block";
+                        } else {
+                            document.getElementById("ifYes").style.display = "none";
+                        }
+                    }
+                </script>
